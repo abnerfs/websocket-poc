@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+     <h1>Teste</h1>
+    
+     <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+     <script>
+        const socket = io.connect("http://localhost:8899/", {
+            path: '/socket.io'
+        });
+        socket.on('connect', function(data) {
+            socket.emit('join', JSON.stringify({
+
+            }));
+        });
+
+        socket.on('msg', msg => {
+            alert(msg);
+        })
+     </script>
+</body>
+</html>
